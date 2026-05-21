@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   BASE LAYER — Global resets & typography
+   ============================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream text-obsidian font-sans leading-relaxed;
+  }
+
+  /* Selection highlight — brand gold */
+  ::selection {
+    @apply bg-gold/30 text-obsidian;
+  }
+
+  /* Scrollbar styling for Webkit browsers */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-cream;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-warm-gray/40 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-warm-gray/60;
+  }
+}
+
+/* ============================================
+   COMPONENT LAYER — Reusable composites
+   ============================================ */
+@layer components {
+  /* Luxury link underline animation */
+  .nav-link {
+    @apply relative inline-block text-sm uppercase tracking-[0.15em] text-cream/80 hover:text-cream transition-colors duration-300;
+  }
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 bottom-0 w-0 h-[1px] bg-gold transition-all duration-500;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Glassmorphism overlay for navbar */
+  .glass-nav {
+    @apply backdrop-blur-xl bg-obsidian/80 border-b border-white/5;
+  }
+
+  /* Primary CTA button — gold accent */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-gold text-obsidian font-medium text-sm uppercase tracking-[0.15em] transition-all duration-500 hover:bg-gold/90 hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] active:scale-[0.97];
+  }
+
+  /* Secondary CTA — ghost/outline */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-4 border border-cream/30 text-cream font-medium text-sm uppercase tracking-[0.15em] transition-all duration-500 hover:bg-cream hover:text-obsidian active:scale-[0.97];
+  }
+
+  /* Tertiary CTA — minimal text-based */
+  .btn-text {
+    @apply inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-gold transition-all duration-300 hover:text-gold/70;
+  }
+
+  /* Section heading style */
+  .section-label {
+    @apply text-gold text-xs uppercase tracking-[0.25em] font-medium mb-4 block;
+  }
+
+  .section-title {
+    @apply font-serif text-fluid-3xl md:text-fluid-4xl leading-tight text-obsidian;
+  }
+
+  /* Card hover zoom effect */
+  .img-zoom {
+    @apply overflow-hidden;
+  }
+  .img-zoom img {
+    @apply transition-transform duration-700 ease-out;
+  }
+  .img-zoom:hover img {
+    @apply scale-[1.05];
+  }
+
+  /* Gold divider */
+  .gold-divider {
+    @apply w-16 h-[1px] bg-gold;
+  }
+}
+
+/* ============================================
+   UTILITY LAYER — Animation delay helpers
+   ============================================ */
+@layer utilities {
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "nuella-modish",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./public/css/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./public/css/output.css --minify",
+    "start": "npx serve public"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  },
+  "dependencies": {
+    "heic-convert": "^2.1.0",
+    "sharp": "^0.34.5"
+  }
+}
