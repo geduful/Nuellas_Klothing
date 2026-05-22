@@ -39,6 +39,7 @@ module.exports = {
         "slide-down": "slideDown 0.5s ease-out forwards",
         "scale-in": "scaleIn 0.6s ease-out forwards",
         "glow-pulse": "glowPulse 3s ease-in-out infinite",
+        "gold-sweep": "goldSweep 6s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -60,6 +61,11 @@ module.exports = {
         glowPulse: {
           "0%, 100%": { boxShadow: "0 0 20px rgba(201, 169, 110, 0.2)" },
           "50%": { boxShadow: "0 0 40px rgba(201, 169, 110, 0.4)" },
+        },
+        goldSweep: {
+          "0%": { transform: "translateX(-25%) translateY(-25%)" },
+          "50%": { transform: "translateX(25%) translateY(25%)" },
+          "100%": { transform: "translateX(-25%) translateY(-25%)" },
         },
       },
     },
