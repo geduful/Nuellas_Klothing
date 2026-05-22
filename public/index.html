@@ -42,12 +42,12 @@
 <body class="bg-cream text-obsidian font-sans antialiased">
 
   <!-- Loading Intro -->
-  <div id="loading-intro" class="fixed inset-0 z-[70] bg-obsidian flex flex-col items-center justify-center" style="transition: opacity 0.8s ease;">
+  <div id="loading-intro" class="fixed inset-0 z-[70] bg-obsidian flex flex-col items-center justify-center" style="opacity:1; transition: opacity 0.8s ease;">
     <div class="text-center">
       <div class="w-16 h-16 border border-gold flex items-center justify-center mx-auto mb-6">
         <span class="text-gold text-2xl font-serif italic">N</span>
       </div>
-      <div class="h-[1px] bg-gold mx-auto" id="loading-bar" style="width: 0; transition: width 1.2s ease-out;"></div>
+      <div class="h-[1px] bg-gold mx-auto" id="loading-bar" style="width: 0; transition: width 2.2s ease-out;"></div>
       <p class="text-cream/40 text-xs uppercase tracking-[0.3em] mt-6">Nuella Modish</p>
     </div>
   </div>
@@ -1435,29 +1435,33 @@
       }
 
       /* ---- LOADING INTRO ---- */
-      window.addEventListener('load', function() {
+      function hideLoadingIntro() {
         var bar = document.getElementById('loading-bar');
-        if (bar) {
-          bar.style.width = '80px';
-          setTimeout(function() {
-            var intro = document.getElementById('loading-intro');
-            if (intro) {
-              intro.style.opacity = '0';
-              setTimeout(function() {
-                intro.style.display = 'none';
-              }, 800);
-            }
-          }, 800);
-        }
-      });
-      // Fallback: ensure it disappears even if load event is slow
+        if (!bar) return;
+        bar.style.width = '80px';
+        setTimeout(function() {
+          var intro = document.getElementById('loading-intro');
+          if (intro) {
+            intro.style.opacity = '0';
+            setTimeout(function() {
+              intro.style.display = 'none';
+            }, 800);
+          }
+        }, 2200);
+      }
+
+      if (document.readyState === 'complete') {
+        hideLoadingIntro();
+      } else {
+        window.addEventListener('load', hideLoadingIntro);
+      }
+      // Fallback: ensure it disappears even if something hangs
       setTimeout(function() {
         var intro = document.getElementById('loading-intro');
-        if (intro && intro.style.opacity !== '0') {
-          intro.style.opacity = '0';
-          setTimeout(function() { intro.style.display = 'none'; }, 800);
+        if (intro && intro.style.opacity !== '0' && intro.style.display !== 'none') {
+          hideLoadingIntro();
         }
-      }, 4000);
+      }, 6000);
 
       /* ---- IMAGE LIGHTBOX ---- */
       var lightboxImages = [];
