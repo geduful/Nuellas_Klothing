@@ -21,6 +21,17 @@
   <!-- Tailwind Compiled Output -->
   <link rel="stylesheet" href="css/output.css" />
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-size='20' fill='%23C9A96E' font-style='italic'%3EN%3C/text%3E%3C/svg%3E" />
+
+  <!-- Open Graph Image -->
+  <meta property="og:image" content="images/IMG_1698.JPG.jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nuella's Klothing — Premium Fashion & Bespoke Tailoring" />
+  <meta name="twitter:description" content="High-end modern fashion blending African avant-garde fusion with global standards. Based in Galloway, Koforidua." />
+
   <!-- Inline critical styles to prevent FOUT -->
   <style>
     html { scroll-behavior: smooth; }
@@ -28,15 +39,25 @@
     body.loaded { opacity: 1; }
     /* Fluid spacing for hero to avoid jarring layout shifts */
     .hero-padder { padding-top: clamp(5rem, 8vw, 8rem); padding-bottom: clamp(3rem, 5vw, 6rem); }
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
     /* Marquee animation */
     @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .animate-marquee { animation: marquee 30s linear infinite; }
+    /* Image loading placeholder */
+    .img-loading { background: linear-gradient(135deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%); background-size: 200% 200%; animation: shimmer 1.5s ease-in-out infinite; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+    /* Smooth image reveal */
+    .img-fade { opacity: 0; transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .img-fade.loaded { opacity: 1; }
+    /* Filter button active state */
+    .filter-btn.active { background-color: #0A0A0A; color: #F5F0EB; border-color: #0A0A0A; }
   </style>
 </head>
 <body class="bg-cream text-obsidian font-sans antialiased overflow-x-hidden">
@@ -203,8 +224,8 @@
           <!-- Tertiary image -->
           <div class="relative overflow-hidden group">
             <img
-              src="https://i.pinimg.com/236x/6a/56/a3/6a56a3fc91ab0b6d1480423b74558929.jpg"
-              alt="Nuella's Klothing — Bespoke Design"
+              src="images/IMG_2480.jpg"
+              alt="Nuella's Klothing — African Print Fusion"
               loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             />
@@ -391,16 +412,16 @@
         <div class="collection-item group relative overflow-hidden" data-category="men">
           <div class="aspect-[3/4] bg-charcoal img-zoom relative">
             <img
-              src="https://flairoc.com/gh/wp-content/uploads/2025/07/ishafrica-10.jpg"
-              alt="Afara Co-ord — Modern Men's Two-Piece"
+              src="images/IMG_1714.jpg"
+              alt="Nuella's Klothing — Bespoke Tailoring for Men"
               loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             />
             <span class="absolute top-4 left-4 z-10 px-3 py-1.5 bg-gold/20 backdrop-blur-md text-gold text-[10px] uppercase tracking-[0.15em] border border-gold/30">Men</span>
           </div>
           <div class="p-6 bg-cream border border-obsidian/5">
-            <h3 class="font-serif text-xl text-obsidian mb-1">Afara Co-ord</h3>
-            <p class="text-warm-gray text-sm mb-4">A sharp modern two-piece set in premium African print. Clean lines, confident fit — made for the contemporary Ghanaian gent.</p>
+            <h3 class="font-serif text-xl text-obsidian mb-1">Bespoke Tailoring</h3>
+            <p class="text-warm-gray text-sm mb-4">Hand-finished tailoring that speaks confidence. Every stitch reflects our commitment to quality craftsmanship for the modern gentleman.</p>
             <a href="https://wa.me/233204635353?text=Inquiry:%20Afara%20Co-ord" target="_blank" rel="noopener" class="btn-text text-xs">
               Inquire via WhatsApp
               <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -412,8 +433,8 @@
         <div class="collection-item group relative overflow-hidden" data-category="women">
           <div class="aspect-[3/4] bg-charcoal img-zoom relative">
             <img
-              src="https://i.pinimg.com/736x/04/b3/6a/04b36aad398177becbd1687ef89b3e09.jpg"
-              alt="Executive Tailoring — Women's Suit"
+              src="images/IMG_2313.jpg"
+              alt="Nuella's Klothing — Modern Ghana Silhouettes"
               loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             />
@@ -432,16 +453,16 @@
         <div class="collection-item group relative overflow-hidden" data-category="women">
           <div class="aspect-[3/4] bg-charcoal img-zoom relative">
             <img
-              src="https://i0.wp.com/clipkulture.com/wp-content/uploads/2019/10/15710815938ng4k.jpg?fit=800%2C993&ssl=1"
-              alt="Kente Signature Jacket — Women's Statement Piece"
+              src="images/8f68b4b72ab3e18c38d4ecf7a7837bce.jpg"
+              alt="Nuella's Klothing — Ankara Reimagined"
               loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             />
             <span class="absolute top-4 left-4 z-10 px-3 py-1.5 bg-gold/20 backdrop-blur-md text-gold text-[10px] uppercase tracking-[0.15em] border border-gold/30">Women</span>
           </div>
           <div class="p-6 bg-cream border border-obsidian/5">
-            <h3 class="font-serif text-xl text-obsidian mb-1">Kente Signature Jacket</h3>
-            <p class="text-warm-gray text-sm mb-4">A breathtaking blend of heritage and haute couture. Ghanaian textile artistry reimagined for the modern woman who defies convention.</p>
+            <h3 class="font-serif text-xl text-obsidian mb-1">Ankara Reimagined</h3>
+            <p class="text-warm-gray text-sm mb-4">Vibrant African print reimagined through a contemporary lens. A breathtaking piece that celebrates Ghanaian textile artistry with a modern edge.</p>
             <a href="https://wa.me/233204635353?text=Inquiry:%20Kente%20Signature%20Jacket" target="_blank" rel="noopener" class="btn-text text-xs">
               Inquire via WhatsApp
               <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -492,8 +513,8 @@
         <div class="collection-item group relative overflow-hidden" data-category="kids">
           <div class="aspect-[3/4] bg-charcoal img-zoom relative">
             <img
-              src="https://i.pinimg.com/736x/32/ab/04/32ab040ff3485ec2483bbc2a30117099.jpg"
-              alt="Nuella's Klothing Prince Outfit — Little Boy's Ghanaian Style"
+              src="images/IMG_1888.jpg"
+              alt="Nuella's Klothing — Kids Fashion Detail"
               loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             />
@@ -547,7 +568,7 @@
         <div class="col-span-2 md:col-span-2 lg:col-span-2 row-span-2 relative overflow-hidden group reveal">
           <div class="aspect-[4/5] md:aspect-auto md:h-full">
             <img
-              src="https://images.unsplash.com/photo-1648328414427-fc902f51808c?w=800&q=80"
+              src="images/IMG_1698.JPG.jpeg"
               alt="Nuella's Klothing — The Heritage Edit"
               loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05] lookbook-img"
@@ -844,7 +865,7 @@
               <!-- Google Maps Embed — Galloway, Koforidua -->
               <div class="aspect-[16/9] bg-obsidian/5 relative overflow-hidden group">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15874.181999999999!2d-0.2574!3d6.0921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb5f5b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sGalloway%2C%20Koforidua!5e0!3m2!1sen!2sgh!4v1"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.4431846457765!2d-0.2658932!3d6.092358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb5a8c6b7f2b2f%3A0x8e5e5c5b5a5b5c5d!2sGalloway%2C%20Koforidua%2C%20Eastern%20Region!5e0!3m2!1sen!2sgh!4v1"
                   width="100%"
                   height="100%"
                   style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
@@ -948,13 +969,13 @@
             </p>
             <!-- Social Links -->
             <div class="flex gap-4">
-              <a href="#" class="w-10 h-10 border border-white/10 flex items-center justify-center text-cream/60 hover:text-gold hover:border-gold/30 transition-all duration-300" aria-label="Instagram">
+              <a href="https://instagram.com/nuellas.klothing" target="_blank" rel="noopener" class="w-10 h-10 border border-white/10 flex items-center justify-center text-cream/60 hover:text-gold hover:border-gold/30 transition-all duration-300" aria-label="Instagram">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" stroke="currentColor"/></svg>
               </a>
-              <a href="#" class="w-10 h-10 border border-white/10 flex items-center justify-center text-cream/60 hover:text-gold hover:border-gold/30 transition-all duration-300" aria-label="Facebook">
+              <a href="https://facebook.com/nuellasklothing" target="_blank" rel="noopener" class="w-10 h-10 border border-white/10 flex items-center justify-center text-cream/60 hover:text-gold hover:border-gold/30 transition-all duration-300" aria-label="Facebook">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
-              <a href="#" class="w-10 h-10 border border-white/10 flex items-center justify-center text-cream/60 hover:text-gold hover:border-gold/30 transition-all duration-300" aria-label="TikTok">
+              <a href="https://tiktok.com/@nuellas.klothing" target="_blank" rel="noopener" class="w-10 h-10 border border-white/10 flex items-center justify-center text-cream/60 hover:text-gold hover:border-gold/30 transition-all duration-300" aria-label="TikTok">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
               </a>
                <a href="https://wa.me/233204635353" target="_blank" rel="noopener" class="w-10 h-10 border border-white/10 flex items-center justify-center text-cream/60 hover:text-gold hover:border-gold/30 transition-all duration-300" aria-label="WhatsApp">
@@ -1004,7 +1025,7 @@
         <!-- Bottom bar -->
         <div class="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p class="text-warm-gray/60 text-xs">
-            &copy; <span id="copyright-year">2025</span> <a href="#" class="hover:text-gold transition-colors">Nuella's Klothing</a>. All rights reserved.
+            &copy; <span id="copyright-year">2026</span> <a href="#" class="hover:text-gold transition-colors">Nuella's Klothing</a>. All rights reserved.
             Crafted with purpose in <a href="https://maps.app.goo.gl/galloway-koforidua" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Galloway, Koforidua</a>.
           </p>
           <div class="flex flex-wrap items-center justify-center gap-4 text-warm-gray/60 text-xs">
@@ -1266,9 +1287,24 @@
         const service = document.getElementById('service').value;
         const message = document.getElementById('message').value.trim();
 
+        // Client-side validation feedback
+        if (!name || !email || !message) {
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = 'Please fill in required fields';
+          submitBtn.style.background = '#C17F5B';
+          submitBtn.disabled = true;
+          setTimeout(function() {
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+          }, 2000);
+          return;
+        }
+
         const formMessage = [
           `*New Booking Inquiry — Nuella's Klothing*`,
-            ``,
+          ``,
           `*Name:* ${name}`,
           `*Email:* ${email}`,
           `*Phone:* ${phone || 'Not provided'}`,
@@ -1283,15 +1319,13 @@
         submitBtn.innerHTML = 'Opening WhatsApp...';
         submitBtn.disabled = true;
 
-        // Open WhatsApp with pre-filled message
         window.open(whatsappUrl, '_blank');
 
-        // Reset button state and form
         setTimeout(function() {
           submitBtn.innerHTML = originalText;
           submitBtn.disabled = false;
           bookingForm.reset();
-        }, 2000);
+        }, 3000);
       });
 
       /* ---- NEWSLETTER FORM SUBMIT ---- */
@@ -1301,6 +1335,28 @@
         const input = this.querySelector('input');
         const btn = this.querySelector('button');
         const originalText = btn.textContent;
+        const email = input.value.trim();
+
+        if (!email) {
+          btn.textContent = 'Enter email';
+          btn.style.background = '#C17F5B';
+          setTimeout(function() {
+            btn.textContent = originalText;
+            btn.style.background = '';
+          }, 1500);
+          return;
+        }
+
+        // Simple email validation
+        if (!email.includes('@') || !email.includes('.')) {
+          btn.textContent = 'Invalid email';
+          btn.style.background = '#C17F5B';
+          setTimeout(function() {
+            btn.textContent = originalText;
+            btn.style.background = '';
+          }, 1500);
+          return;
+        }
 
         btn.textContent = 'Joined!';
         btn.style.background = '#22c55e';
@@ -1506,6 +1562,26 @@
         }
       }, 6000);
 
+      /* ---- IMAGE LOADING & ERROR HANDLING ---- */
+      document.querySelectorAll('img').forEach(function(img) {
+        img.addEventListener('error', function() {
+          this.style.display = 'none';
+          var parent = this.parentElement;
+          if (parent) {
+            var fallback = document.createElement('div');
+            fallback.className = 'w-full h-full bg-gradient-to-br from-gold/10 via-cream to-terracotta/10 flex items-center justify-center';
+            fallback.innerHTML = '<span class="text-warm-gray text-xs">Image unavailable</span>';
+            parent.appendChild(fallback);
+          }
+        });
+        img.classList.add('img-fade');
+        if (img.complete) {
+          img.classList.add('loaded');
+        } else {
+          img.addEventListener('load', function() { this.classList.add('loaded'); });
+        }
+      });
+
       /* ---- IMAGE LIGHTBOX ---- */
       var lightboxImages = [];
       var lightboxIndex = 0;
@@ -1516,40 +1592,34 @@
       var lightboxPrev = document.getElementById('lightbox-prev');
       var lightboxNext = document.getElementById('lightbox-next');
 
-      // Collect all clickable images from collections and lookbook
-      document.querySelectorAll('.collection-item img').forEach(function(img) {
+      function collectAndOpenLightbox(clickedImg, selector) {
+        var all = document.querySelectorAll(selector);
+        lightboxImages = [];
+        all.forEach(function(s) { lightboxImages.push(s.getAttribute('src')); });
+        lightboxIndex = Array.from(all).indexOf(clickedImg);
+        if (lightboxIndex === -1) lightboxIndex = 0;
+        openLightbox();
+      }
+
+      // Collection images lightbox
+      document.querySelectorAll('.collection-item .img-zoom img').forEach(function(img) {
         img.addEventListener('click', function() {
-          lightboxImages = [];
-          var parent = this.closest('.collection-item') ? this.closest('.collection-item').parentNode : null;
-          var siblings;
-          if (parent) {
-            siblings = parent.querySelectorAll('.collection-item img');
-          } else {
-            siblings = [this];
-          }
-          siblings.forEach(function(s) { lightboxImages.push(s.getAttribute('src')); });
-          lightboxIndex = Array.from(siblings).indexOf(this);
-          if (lightboxIndex === -1) lightboxIndex = 0;
-          openLightbox();
+          collectAndOpenLightbox(this, '.collection-item .img-zoom img');
         });
         img.classList.add('cursor-pointer');
       });
 
-      // Also add lookbook images
-      document.querySelectorAll('#lookbook img').forEach(function(img) {
+      // Lookbook images lightbox — all images inside #lookbook
+      document.querySelectorAll('#lookbook .group img').forEach(function(img) {
         img.addEventListener('click', function() {
-          var all = document.querySelectorAll('#lookbook img');
-          lightboxImages = [];
-          all.forEach(function(s) { lightboxImages.push(s.getAttribute('src')); });
-          lightboxIndex = Array.from(all).indexOf(this);
-          if (lightboxIndex === -1) lightboxIndex = 0;
-          openLightbox();
+          collectAndOpenLightbox(this, '#lookbook .group img');
         });
         img.classList.add('cursor-pointer');
       });
 
       function openLightbox() {
         if (lightboxImages.length === 0) return;
+        lightboxImg.classList.remove('loaded');
         updateLightboxImage();
         lightbox.classList.remove('opacity-0', 'pointer-events-none');
         lightbox.classList.add('opacity-100', 'pointer-events-auto');
@@ -1591,16 +1661,14 @@
       if (lightboxPrev) lightboxPrev.addEventListener('click', prevImage);
       if (lightboxNext) lightboxNext.addEventListener('click', nextImage);
 
-      // Close on overlay click (not on image)
       if (lightbox) {
         lightbox.addEventListener('click', function(e) {
-          if (e.target === lightbox || e.target === lightbox.querySelector('.max-w-\\[90vw\\]')) {
+          if (e.target === lightbox) {
             closeLightbox();
           }
         });
       }
 
-      // Keyboard navigation
       document.addEventListener('keydown', function(e) {
         if (!lightbox.classList.contains('opacity-100')) return;
         if (e.key === 'Escape') closeLightbox();
@@ -1608,7 +1676,6 @@
         if (e.key === 'ArrowRight') nextImage();
       });
 
-      // Touch swipe for mobile
       var touchStartX = 0;
       var touchEndX = 0;
       if (lightbox) {
