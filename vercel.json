@@ -7,9 +7,14 @@
       "config": {
         "distDir": "public"
       }
+    },
+    {
+      "src": "api/subscribe.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
+    { "src": "/api/subscribe", "dest": "/api/subscribe" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }

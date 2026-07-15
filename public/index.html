@@ -1370,10 +1370,10 @@
         btn.style.background = '#C17F5B';
         btn.disabled = true;
 
-        fetch('https://formsubmit.co/ajax/d598785f1caba035318962ef065faaa6', {
+        fetch('/api/subscribe', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: email, _subject: 'Nuella\'s Klothing — New newsletter subscriber' })
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
         })
         .then(function(r) { return r.json(); })
         .then(function(data) {
