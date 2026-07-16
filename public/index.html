@@ -1370,15 +1370,12 @@
         btn.style.background = '#C17F5B';
         btn.disabled = true;
 
-        fetch('/api/subscribe', {
+        fetch('https://formsubmit.co/ajax/d598785f1caba035318962ef065faaa6', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email })
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email, _subject: 'New subscriber from Nuellas Klothing' })
         })
-        .then(function(r) {
-          if (!r.ok) throw new Error('Server error');
-          return r.json();
-        })
+        .then(function(r) { return r.json(); })
         .then(function(data) {
           btn.textContent = 'Joined!';
           btn.style.background = '#22c55e';
