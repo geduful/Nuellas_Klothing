@@ -1375,7 +1375,10 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email })
         })
-        .then(function(r) { return r.json(); })
+        .then(function(r) {
+          if (!r.ok) throw new Error('Server error');
+          return r.json();
+        })
         .then(function(data) {
           btn.textContent = 'Joined!';
           btn.style.background = '#22c55e';
