@@ -81,6 +81,14 @@
     @apply font-serif text-fluid-3xl md:text-fluid-4xl leading-tight text-obsidian;
   }
 
+  /* Uniform card sizing */
+  .collection-item {
+    @apply flex flex-col;
+  }
+  .collection-item > div:last-child {
+    @apply flex-1;
+  }
+
   /* Card hover zoom effect */
   .img-zoom {
     @apply overflow-hidden;
